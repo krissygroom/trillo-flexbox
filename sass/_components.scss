@@ -15,6 +15,12 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1; // now search will be at the end
+    flex: 0 0 100%; // and occupies 100% of the space
+    background-color: var(--color-grey-light-2);
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -123,12 +129,26 @@
   list-style: none;
   margin-top: 3rem;
 
+  @media only screen and (max-width: $bp-large) {
+    display: flex;
+    margin: 0;
+  }
+
   &__item {
     position: relative;
     cursor: pointer;
 
     &:not(:last-child) {
       margin-bottom: 0.5rem;
+    }
+
+    @media only screen and (max-width: $bp-large) {
+      // Each item takes up equal space
+      flex: 1;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -168,6 +188,16 @@
 
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: $bp-large) {
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      flex-direction: column;
+      padding: 1.5rem 0.5rem;
+    }
   }
 
   &__icon {
@@ -175,6 +205,13 @@
     height: 1.75rem;
     margin-right: 2rem;
     fill: currentColor;
+
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      margin-bottom: 0.7rem;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 }
 
@@ -185,6 +222,10 @@
   color: var(--color-grey-light-5);
   text-align: center;
   padding: 0 0.5rem 1rem 0.5rem;
+
+  @media only screen and (max-width: $bp-large) {
+    display: none;
+  }
 }
 
 ///////////////////////////////
@@ -204,19 +245,38 @@
   border-bottom: var(--line);
   align-items: center;
 
+  &__hotel {
+    display: flex;
+    margin-right: auto;
+
+    @media only screen and (max-width: $bp-smallest) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 1rem;
+      padding-right: 0;
+    }
+  }
+
   &__heading {
     font-size: 2.25rem;
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 1.5rem 3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      font-size: 1.8rem;
+      padding: 1.25rem 2rem;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+      padding: 0;
+    }
   }
 
   &__stars {
-    // flex: 1;
     display: flex;
     align-items: center;
-    margin-right: auto;
   }
 
   &__icon-star,
@@ -248,10 +308,18 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width: $bp-small) {
+      padding: 0 1.5rem;
+    }
+
     &-average {
       font-size: 2.25rem;
       font-weight: 300;
       margin-bottom: -3px;
+
+      @media only screen and (max-width: $bp-small) {
+        font-size: 1.8rem;
+      }
     }
 
     &-count {
@@ -329,9 +397,24 @@
   display: flex;
   flex-wrap: wrap;
 
+  @media only screen and (max-width: $bp-smallest) {
+    font-size: 1.3rem;
+    padding: 2rem 0;
+  }
+
+  @media only screen and (max-width: $bp-xsmall) {
+    flex-direction: column;
+    font-size: 1.4rem;
+    margin: 1rem;
+  }
+
   &__item {
     flex: 0 0 50%;
     margin-bottom: 0.7rem;
+
+    @media only screen and (max-width: $bp-xsmall) {
+      margin-bottom: 1rem;
+    }
   }
 
   &__item::before {
@@ -366,6 +449,10 @@
     margin-right: auto;
   }
 
+  &__friends {
+    display: flex;
+  }
+
   &__photo {
     box-sizing: content-box;
     height: 4rem;
@@ -374,7 +461,7 @@
     border: 3px solid #fff;
 
     &:not(:last-child) {
-      margin-right: -1.5rem;
+      margin-right: -1.8rem;
     }
   }
 }
@@ -387,6 +474,11 @@
   padding: 3rem;
   margin-bottom: 3.5rem;
   position: relative;
+
+  @media only screen and (max-width: $bp-large) {
+    padding: 2rem;
+    margin-bottom: 3rem;
+  }
 
   &__text {
     margin-bottom: 2rem;
@@ -448,11 +540,27 @@
   padding: 3.5rem 0;
   text-align: center;
 
+  @media only screen and (max-width: $bp-large) {
+    padding: 2.5rem 0;
+  }
+
+  @media only screen and (max-width: $bp-smallest) {
+    padding: 2.5rem;
+  }
+
+  @media only screen and (max-width: $bp-xsmall) {
+    padding: 2.5rem 1.25rem;
+  }
+
   &__book-now {
     font-size: 1.8rem;
     font-weight: 300;
     text-transform: uppercase;
     margin-bottom: 2.5rem;
+
+    @media only screen and (max-width: $bp-smallest) {
+      margin-bottom: 2rem;
+    }
   }
 }
 
